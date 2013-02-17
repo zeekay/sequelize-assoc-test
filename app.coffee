@@ -3,14 +3,18 @@ models  = require("./models")
 
 models.sync(force: true).success ->
   Project
-    .create(name: "Sequelize", description: "A nice MySQL ORM for NodeJS")
+    .create
+      name: "Sequelize"
+      description: "A nice MySQL ORM for NodeJS"
     .success (project) ->
-      Task.create
+      Task
+        .create
           name: "Choose a nice MySQL connector"
           deadline: new Date()
           importance: 10
         .success (task1) ->
-          Task.create
+          Task
+            .create
               name: "Build the rest"
               deadline: new Date()
               importance: 90
